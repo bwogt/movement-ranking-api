@@ -5,8 +5,6 @@ x-db-base: &db-base
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-  ports:
-    - "${DB_PORT}:3306"
   networks:
     - mvr-network
 
@@ -18,7 +16,6 @@ services:
       args:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
-    container_name: mvr-php
     env_file:
       - .env
     volumes:
@@ -29,16 +26,16 @@ services:
 
   db:
     <<: *db-base
-    container_name: mvr-db
     volumes:
       - db_data:/var/lib/mysql
       - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
       - ./database/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    ports:
+    - "${DB_PORT}:3306"
     profiles: ['web']
 
   db_test:
     <<: *db-base
-    container_name: mvr-db-test
     volumes:
       - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
     profiles: ['test']
