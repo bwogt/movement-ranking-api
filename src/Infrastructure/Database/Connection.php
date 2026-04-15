@@ -1,20 +1,31 @@
 <?php
 
+namespace Src\Infrastructure\Database;
+
+use PDO;
+use PDOException;
+use RuntimeException;
+
 /*
 *   https://www.php.net/manual/pt_BR/pdo.construct.php
 *   https://www.php.net/manual/en/pdo.constants.php
 */ 
-class Database
+final class Connection
 {
     private static ?PDO $pdo = null;
   
-    public static function connect(): PDO
+    public static function get(): PDO
     {
         if (is_null(self::$pdo)) {
             self::createPDO();
         }
 
         return self::$pdo;
+    }
+
+    public static function reset(): void
+    {
+        self::$pdo = null;
     }
   
     private static function createPDO(): void
