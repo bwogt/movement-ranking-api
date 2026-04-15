@@ -24,4 +24,17 @@ final class MovementRepositoryPDO implements MovementRepository
             ? new Movement($data['id'], $data['name'])
             : null;
     }
+
+    public function findByName(string $name): ?Movement 
+    {
+        $sql = "SELECT id, name FROM movement WHERE name = :name";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['name' => $name]);
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $data
+            ? new Movement($data['id'], $data['name'])
+            : null;
+    }
 }
