@@ -1,7 +1,20 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    container_name: mvr-php
+    volumes:
+      - .:/var/www/html
+    networks:
+      - mvr-network
+
   db:
     image: mysql:8.0
-    container_name: mvr-api-db
+    container_name: mvr-db
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USER}
@@ -13,6 +26,11 @@ services:
       - ./database/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
     ports:
       - "${DB_PORT}:3306"
+    networks:
+      - mvr-network
 
 volumes:
   db_data:
+
+networks:
+  mvr-network:
