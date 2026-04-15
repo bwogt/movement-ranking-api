@@ -12,8 +12,8 @@
     <php>
         <env name="DB_HOST" value="db_test" force="true"/>
         <env name="DB_PORT" value="3306" force="true"/>
-        <env name="DB_DATABASE" value="mvr_db_test" force="true"/>
-        <env name="DB_USER" value="tester" force="true"/>
+        <env name="DB_DATABASE" value="db_test" force="true"/>
+        <env name="DB_USER" value="testing" force="true"/>
         <env name="DB_PASSWORD" value="password" force="true"/>
     </php>
 </phpunit>
