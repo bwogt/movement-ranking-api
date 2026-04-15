@@ -1,18 +1,47 @@
-services:
-  db:
-    image: mysql:8.0
-    container_name: mvr-api-db
-    environment:
+x-db-base: &db-base
+  image: mysql:8.0
+  environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+  networks:
+    - mvr-network
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www/html
+    networks:
+      - mvr-network
+    profiles: ['web']
+
+  db:
+    <<: *db-base
     volumes:
       - db_data:/var/lib/mysql
       - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
       - ./database/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
     ports:
-      - "${DB_PORT}:3306"
+    - "${DB_PORT}:3306"
+    profiles: ['web']
+
+  db_test:
+    <<: *db-base
+    volumes:
+      - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    profiles: ['test']
 
 volumes:
   db_data:
+
+networks:
+  mvr-network:
