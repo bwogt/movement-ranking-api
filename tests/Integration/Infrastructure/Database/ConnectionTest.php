@@ -13,7 +13,7 @@ class ConnectionTest extends IntegrationTestCase
             ->query("SELECT DATABASE()")
             ->fetchColumn();
 
-        $this->assertEquals('mvr_db_test', $dbName);
+        $this->assertEquals('db_test', $dbName);
     }
 
     public function test_should_be_able_to_run_queries(): void

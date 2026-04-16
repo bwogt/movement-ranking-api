@@ -38,6 +38,7 @@ services:
     <<: *db-base
     volumes:
       - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
     profiles: ['test']
 
 volumes:

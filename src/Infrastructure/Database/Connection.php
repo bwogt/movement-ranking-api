@@ -49,7 +49,8 @@ final class Connection
     private static function dsn(): string
     {
         return sprintf(
-            "mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4",
+            "%s:host=%s;port=%s;dbname=%s;charset=utf8mb4",
+            self::env('DB_CONNECTION'),
             self::env('DB_HOST'),
             self::env('DB_PORT'),
             self::env('DB_DATABASE')
