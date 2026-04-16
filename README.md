@@ -47,6 +47,11 @@ cp .env.example .env
 docker compose --profile web up -d --build
 ~~~
 
+5. Instale as dependências (Composer):
+~~~bash
+docker compose exec app composer install
+~~~
+
 🌐 Endpoint disponível
 ~~~bash
 GET /api/movement/{movement}/ranking
