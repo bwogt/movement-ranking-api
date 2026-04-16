@@ -4,20 +4,18 @@ API REST em PHP para cálculo de ranking de movimentos com base em recordes pess
 ## 📄 Case Técnico 
 https://drive.google.com/file/d/1H4gin62SGw1XCWJt7j0FQHLRKRyTLvIs/view
 
-## 🧠 Descrição
+## 🎯 Sobre o Projeto
 
-Este projeto implementa um endpoint que retorna o ranking de usuários para um determinado movimento, considerando:
+Este projeto foi criado para resolver o desafio de ranquear atletas com base em seus recordes pessoais, tratando de forma inteligente situações de empate e posições sequenciais. A lógica central está encapsulada em Use Cases, garantindo que as regras de negócio sejam independentes de frameworks.
 
-- Maior recorde pessoal por usuário
-- Ordenação decrescente por valor
-- Empate de posições quando valores são iguais
-
-## 🛠️ Tecnologias
+## 🚀 Tecnologias
 + PHP 
 + MySQL 
 + Docker & Docker Compose
-+ PHPUnit
 + FastRoute (routing leve, sem framework)
++ Composer (Gerenciamento de dependências)
++ PDO (Abstração de banco de dados)
++ PHPUnit (Testes unitários e de integração)
 
 ## 🐳 Ambiente de Desenvolvimento (Docker)
 
