@@ -110,3 +110,4 @@ O projeto segue princípios de Clean Architecture:
 - Adicionar paginação no endpoint de ranking para suportar grandes volumes de dados e melhorar performance e consumo da API; 
 - Implementar versionamento da API (/api/v1/...) para permitir evolução sem quebra de contratos;
 - Evoluir o sistema de rotas para facilitar a organização das rotas, permitindo melhor separação entre definição de endpoints e execução de dependências;
+- Criar um sistema de factories para testes, evitando dependência de seeds fixas e garantindo maior isolamento, previsibilidade e facilidade na criação de cenários de teste.
