@@ -15,7 +15,7 @@ Este projeto implementa um endpoint que retorna o ranking de usuários para um d
 + PHP 
 + MySQL 
 + Docker & Docker Compose
-+ FastRoute (routing leve, sem framework)
++ FastRoute (Routing)
 + Composer (Gerenciamento de dependências)
 + PDO (Abstração de banco de dados)
 + PHPUnit (Testes unitários e de integração)
