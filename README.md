@@ -107,5 +107,6 @@ O projeto segue princípios de Clean Architecture:
 ## 🔄 Possíveis melhorias futuras
 - Adicionar um fluxo de CI com GitHub Actions para executar testes unitários e de integração automaticamente;
 - Adicionar lint para PHP para garantir padronização, formatação e qualidade de código;
+- Adicionar paginação no endpoint de ranking para suportar grandes volumes de dados e melhorar performance e consumo da API; 
 - Implementar versionamento da API (/api/v1/...) para permitir evolução sem quebra de contratos;
 - Evoluir o sistema de rotas para facilitar a organização das rotas, permitindo melhor separação entre definição de endpoints e execução de dependências;
