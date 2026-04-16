@@ -24,6 +24,17 @@ services:
       - mvr-network
     profiles: ['web']
 
+  webserver: 
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - mvr-network
+    profiles: ['web']
+
   db:
     <<: *db-base
     volumes:

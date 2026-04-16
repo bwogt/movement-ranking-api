@@ -14,5 +14,8 @@
     },
     "scripts": {
         "test": "phpunit --testdox"
+    },
+    "require": {
+        "nikic/fast-route": "^1.3"
     }
 }
