@@ -6,7 +6,10 @@ https://drive.google.com/file/d/1H4gin62SGw1XCWJt7j0FQHLRKRyTLvIs/view
 
 ## 🎯 Sobre o Projeto
 
-Este projeto foi criado para resolver o desafio de ranquear atletas com base em seus recordes pessoais, tratando de forma inteligente situações de empate e posições sequenciais. A lógica central está encapsulada em Use Cases, garantindo que as regras de negócio sejam independentes de frameworks.
+Este projeto implementa um endpoint que retorna o ranking de usuários para um determinado movimento, considerando:
+- Maior recorde pessoal por usuário
+- Ordenação decrescente por valor e nome do usuário
+- Empate de posições quando valores são iguais
 
 ## 🚀 Tecnologias
 + PHP 
